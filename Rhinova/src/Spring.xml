@@ -1,0 +1,289 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<!-- Configurations -->
+
+	<!-- for the component annotation -->
+	<context:component-scan base-package="rhinova" />
+
+	<!-- For using AspectJ -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
+	<!-- Null bean which can be used to parse null 	https://jira.springsource.org/browse/SPR-5320?page=com.atlassian.jira.plugin.system.issuetabpanels:all-tabpanel	-->
+	<util:constant static-field="rhinova.framework.bean.E.UNDEFINED" id="nullValue"/>
+
+
+	<!-- Main ToolBar -->
+	<bean id="mainToolBar" class="rhinova.gui.main.view.toolbar.MainToolBar">
+
+		<constructor-arg>
+			<list>
+			
+				<bean id="configureBar" class="rhinova.gui.main.view.toolbar.bars.ConfigureBar">
+					<property name="guiPanelFrame" ref="gUITabbedPannelFrame"/>
+				</bean>
+				
+				<bean id="fileBar" 		class="rhinova.gui.main.view.toolbar.bars.FileBar">
+					<property name="dao" ref="metapopulationDao"/>
+				</bean>
+				
+				<bean id="linkBar" 		class="rhinova.gui.main.view.toolbar.bars.LinkBar">
+					<property name="linkList" ref="linkList"/>
+				</bean>
+				
+				<bean id="reserveBar" 	class="rhinova.gui.main.view.toolbar.bars.ReserveBar">
+					<property name="reserveList" ref="reserveList"/>
+				</bean>
+				
+				<bean id="viewBar" 		class="rhinova.gui.main.view.toolbar.bars.ViewBar">
+					<property name="gisPanel" ref="homeGISPanel"/>
+				</bean>
+				
+			</list>
+		</constructor-arg>
+
+	</bean>
+
+
+
+
+
+
+
+	<!-- GUI Components -->
+	<bean id="reserveDataEntryPanel" class="rhinova.gui.dataentry.reserve.ReserveDataEntryPanel">
+		<property name="reserveList" ref="linkList" />
+	</bean>
+
+	<bean id="linkDataEntryPanel" class="rhinova.gui.dataentry.link.LinkDataEntryPanel">
+		<property name="linkList" ref="linkList" />
+	</bean>
+
+
+
+
+
+
+
+
+
+
+	<bean id="homeGISPanel" class="rhinova.gui.main.view.gis.HomeGISPanel">
+		<property name="reserveList" 	ref="reserveList" />
+		<property name="linkList" 		ref="linkList" />
+	</bean>
+
+
+	<bean id="homeView" class="rhinova.gui.HomeView">
+		<constructor-arg ref="reserveDataEntryPanel" />
+		<constructor-arg ref="linkDataEntryPanel" />
+		<constructor-arg ref="homeGISPanel" />
+		<constructor-arg ref="mainToolBar" />
+	</bean>
+
+
+
+
+
+
+
+
+
+
+	<!-- Model Domain Objects -->
+
+	<!-- ReserveList as a collection of reserves -->
+	<bean id="reserveList" class="rhinova.metapopulation.model.components.reserve.ReserveList" />
+
+	<!-- LinkList as a collection of links -->
+	<bean id="linkList" class="rhinova.metapopulation.model.components.link.LinkList">
+		<property name="reservesList" ref ="reserveList" />
+	</bean>
+
+	<!-- DAO Object for saving/opening functionality -->
+	<bean id="metapopulationDao"
+		class="rhinova.metapopulation.model.components.dao.MetapopulationDao">
+		<property name="reserveList" 	ref="reserveList" />
+		<property name="linkList"		ref="linkList" />
+	</bean>
+
+	<!-- DaoAspect for launching an event when a close/open event occurs -->
+	<bean id="daoAspect" class="rhinova.metapopulation.model.components.dao.aspect.DaoAspect">
+		<property name="dao" 		ref="metapopulationDao" />
+		<property name="homeView" 	ref="homeView" />
+	</bean>
+
+
+
+	<!-- Model Computational Components -->
+
+	<!-- Optimizer for finding the best moves -->
+	<bean id="optimiser" class="rhinova.metapopulation.model.optimise.Optimiser">
+		<property name="reserveList" 	ref="reserveList" />
+		<property name="linkList" 		ref="linkList" />
+	</bean>
+
+	<!-- Simulator for simulating the results from the optimizer -->
+	<bean id="simulator" class="rhinova.metapopulation.model.simulate.Simulator">
+		<property name="simulatable" ref="linkList" />
+	</bean>
+
+
+
+
+
+	<!-- Configuration GUI -->
+
+	<!-- Panel for configuring the solver -->
+	<bean id="solverPanel" class="rhinova.gui.main.view.solver.properties.SolverPanel">
+		<constructor-arg ref="optimiser" />
+	</bean>
+
+	<!-- Panel for configuring the simulator -->
+	<bean id="simulatorPanel" class="rhinova.gui.main.view.simulator.properties.SimulatorPanel">
+		<constructor-arg ref="simulator"/>
+		<constructor-arg ref="optimiser"/>
+	</bean>
+
+	<!-- Panel for configuring the Movie -->
+	<bean id="moviePanel" class="rhinova.gui.main.view.movie.properties.MoviePanel">
+		<constructor-arg ref="composer" />
+		<constructor-arg ref="simulator" />
+	</bean>
+
+	<bean id="gUITabbedPannel" class="rhinova.gui.main.view.GUITabbedPannel">
+		<constructor-arg ref="solverPanel" />
+		<constructor-arg ref="simulatorPanel" />
+		<constructor-arg ref="moviePanel" />
+	</bean>
+
+
+
+
+
+
+	<!-- Analyzing the results from the simulator -->
+
+	<!-- Movie which displays the optimized results -->
+	<bean id="movie" class="rhinova.metapopulation.model.graphicx.movie.Movie" />
+
+	<!-- Composer which is responsible for populating the movie with pictures -->
+	<bean id="composer" class="rhinova.metapopulation.model.graphicx.Composer">
+		<property name="movie" ref="movie" />
+	</bean>
+
+
+
+
+
+
+
+	<!-- Simulation GUI -->
+	<bean id="graphTabbedPane" class="rhinova.gui.main.view.simulator.graphs.GraphTabbedPane">
+		<constructor-arg>
+			<list>
+				<bean id="populationPieChart"				class="rhinova.gui.main.view.simulator.graphs.PopulationPieChart">
+					<constructor-arg ref="movie" />
+				</bean>
+				<bean id="populationTimeSeriesPanel"		class="rhinova.gui.main.view.simulator.graphs.PopulationTimeSeriesPanel" />
+				<bean id="totaPopulationTimeSeriesPanel"	class="rhinova.gui.main.view.simulator.graphs.TotaPopulationTimeSeriesPanel" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean name="simulatorMoviePanel" class="rhinova.gui.main.view.simulator.movie.SimulatorMoviePanel">
+		<property name="movie" ref="movie"/>
+	</bean>
+	
+	<bean name="gISViewController" class="rhinova.gui.main.view.controller.GISViewController">
+		<constructor-arg ref="movie" />
+	</bean>
+	
+	<bean name="simulatorResultsFrame" class="rhinova.gui.main.view.simulator.SimulatorResultsFrame">
+		<constructor-arg ref="graphTabbedPane"/>
+		<constructor-arg ref="simulatorMoviePanel"/>
+		<constructor-arg ref="gISViewController"/>
+	</bean>
+	
+	<bean id="gUITabbedPannelFrame" class="rhinova.gui.main.view.GUITabbedPannelFrame">
+		<constructor-arg ref="gUITabbedPannel"/>
+	</bean>
+
+
+
+
+
+
+
+
+
+
+	<!-- Data Edit Frames  -->
+
+
+
+	<!-- Link -->
+	
+	<!-- Link Table Model -->
+	<bean id="linkTableModel" class="rhinova.metapopulation.model.components.link.table.LinkTableModel">
+		<constructor-arg ref="linkList" />
+	</bean>
+	
+	<!-- Link Table Panel -->
+	<bean id="linkTablePanel" class="rhinova.metapopulation.model.components.link.table.LinkTablePanel">
+		<constructor-arg ref="linkTableModel"/>
+	</bean>
+	
+	<!-- Editor Panel -->
+	<bean id="linkDataEditPannel" class="rhinova.gui.dataentry.link.LinkDataEditPannel" />
+	
+	<!-- Frame -->
+	<bean id="linkTableFrame" class="rhinova.metapopulation.model.components.link.table.LinkDataTableFrame">
+		<constructor-arg ref= "linkTablePanel"/>
+		<constructor-arg ref= "linkDataEditPannel"/>
+	</bean>
+	
+	
+	
+	
+	<!-- Reserve -->
+	
+	<!-- Reserve Table Model -->
+	<bean id="reserveTableModel" class="rhinova.metapopulation.model.components.reserve.table.ReserveTableModel">
+		<constructor-arg ref="reserveList" />
+	</bean>
+	
+	<!-- Reserve Table Panel -->
+	<bean id="reserveTablePanel" class="rhinova.metapopulation.model.components.reserve.table.ReserveTablePanel">
+		<constructor-arg ref="reserveTableModel" />
+	</bean>
+	
+	<!-- Editor Panel -->
+	<bean id="reserveDataEditPanel" class="rhinova.gui.dataentry.reserve.edit.ReserveDataEditPanel" />
+
+	<!-- Frame -->
+	<bean id="reserveTableFrame" class="rhinova.metapopulation.model.components.reserve.table.ReserveTableFrame">
+		<constructor-arg ref="reserveTablePanel"/>
+		<constructor-arg ref="reserveDataEditPanel"/>
+	</bean>
+	
+	
+	
+	
+	
+	
+	<!-- Welcome Screen -->
+	<bean id="welcomeScreen" class="rhinova.gui.WelcomeScreen" />
+
+
+
+</beans>
+
+

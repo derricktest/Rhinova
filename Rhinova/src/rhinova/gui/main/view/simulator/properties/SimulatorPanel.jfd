@@ -1,0 +1,147 @@
+JFDML JFormDesigner: "5.1.1.0.120" Java: "1.7.0_45" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+			"$columnSpecs": "203, 0:1.0"
+			"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0"
+			"$hGap": 25
+			"$vGap": 25
+			"$alignTop": true
+			"$alignLeft": true
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label8"
+				"text": "Enforce Optimisation Values"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
+			add( new FormComponent( "javax.swing.JCheckBox" ) {
+				name: "chkEnforceSolvingOptions"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "chkEnforceSolvingOptionsActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Number of years to simulate"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 1
+			} )
+			add( new FormComponent( "javax.swing.JSpinner" ) {
+				name: "spinnerYears"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Output path"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 2
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txtSolutionPath"
+				"enabled": false
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "txtSolutionPathMouseClicked", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 2
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Allow Overpopulation Deaths"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 3
+			} )
+			add( new FormComponent( "javax.swing.JCheckBox" ) {
+				name: "chkAllowDeaths"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 3
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Inforce Link Capacities"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 4
+			} )
+			add( new FormComponent( "javax.swing.JCheckBox" ) {
+				name: "chkInforceLinkCapacity"
+				"selected": true
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 4
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "Inforce Maximum Population"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 5
+			} )
+			add( new FormComponent( "javax.swing.JCheckBox" ) {
+				name: "chkInforcePopulation"
+				"selected": true
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 5
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label6"
+				"text": "Inforce Minimum Population"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 6
+			} )
+			add( new FormComponent( "javax.swing.JCheckBox" ) {
+				name: "chkInforceMinimumPopulation"
+				"selected": true
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 6
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label7"
+				"text": "Inforce Link Survivalrate"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 7
+			} )
+			add( new FormComponent( "javax.swing.JCheckBox" ) {
+				name: "chkInforceSurvivalRate"
+				"selected": true
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 7
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 5 )
+			"size": new java.awt.Dimension( 375, 350 )
+		} )
+		add( new FormNonVisual( "rhinova.metapopulation.model.simulate.Simulator" ) {
+			name: "simulator1"
+			auxiliary() {
+				"JavaCodeGenerator.customCreate": true
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 465, 110 )
+		} )
+		add( new FormNonVisual( "rhinova.metapopulation.model.optimise.Optimiser" ) {
+			name: "optimiser1"
+			auxiliary() {
+				"JavaCodeGenerator.customCreate": true
+			}
+			addEvent( new FormEvent( "java.beans.PropertyChangeListener", "propertyChange", "optimiser1PropertyChange", true ) )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 615, 125 )
+		} )
+		addBindingGroup( new FormBindingGroup( class org.jdesktop.beansbinding.BindingGroup ) {
+			"name": "bindingGroup"
+			addBinding( new FormBinding( "simulator1", "numberOfYears", "spinnerYears", "value" ) )
+			addBinding( new FormBinding( "simulator1", "solutionPath", "txtSolutionPath", "text" ) )
+			addBinding( new FormBinding( "simulator1", "allowOverpopulationDeaths", "chkAllowDeaths", "selected" ) )
+			addBinding( new FormBinding( "simulator1", "inforceLinkCapacity", "chkInforceLinkCapacity", "selected" ) )
+			addBinding( new FormBinding( "simulator1", "inforceMaxPopulation", "chkInforcePopulation", "selected" ) )
+			addBinding( new FormBinding( "simulator1", "inforceMinPopulationConstraint", "chkInforceMinimumPopulation", "selected" ) )
+			addBinding( new FormBinding( "simulator1", "inforceLinkSurvivalRates", "chkInforceSurvivalRate", "selected" ) )
+		} )
+	}
+}

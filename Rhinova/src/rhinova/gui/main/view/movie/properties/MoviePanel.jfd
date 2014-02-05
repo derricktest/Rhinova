@@ -1,0 +1,155 @@
+JFDML JFormDesigner: "5.1.1.0.120" Java: "1.7.0_45" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+			"$columnSpecs": "287:1.0, 121"
+			"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0, 0"
+			"$hGap": 25
+			"$vGap": 25
+			"$alignLeft": true
+			"$alignTop": true
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label9"
+				"text": "Use default settings"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
+			add( new FormComponent( "javax.swing.JCheckBox" ) {
+				name: "chkDefaultSettings"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "chkDefaultSettingsActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label8"
+				"text": "Enforce Simultor Settings where applicable"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 1
+			} )
+			add( new FormComponent( "javax.swing.JCheckBox" ) {
+				name: "chkEnforceSimultorSettings"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "chkEnforceSimultorSettingsActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "No of Years"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 2
+			} )
+			add( new FormComponent( "javax.swing.JSpinner" ) {
+				name: "spinnerYears"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 2
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Wait Start - Leaving"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 3
+			} )
+			add( new FormComponent( "javax.swing.JSpinner" ) {
+				name: "spinnerWaitStart"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 3
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Wait Leaving - Migrating"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 4
+			} )
+			add( new FormComponent( "javax.swing.JSpinner" ) {
+				name: "spinnerWaitMigrating"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 4
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Number of Migrating Pictures"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 5
+			} )
+			add( new FormComponent( "javax.swing.JSpinner" ) {
+				name: "spinnerNoMigratingPics"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 5
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "Wait Migrating Steps"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 6
+			} )
+			add( new FormComponent( "javax.swing.JSpinner" ) {
+				name: "spinnerWaitMigratingSteps"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 6
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label6"
+				"text": "Wait Migrating - Arriving"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 7
+			} )
+			add( new FormComponent( "javax.swing.JSpinner" ) {
+				name: "spinnerWaitArriving"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 7
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label7"
+				"text": "Wait Arriving - Regenerating"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridy": 8
+			} )
+			add( new FormComponent( "javax.swing.JSpinner" ) {
+				name: "spinnerWaitRegenerating"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+				"gridx": 1
+				"gridy": 8
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 5, 0 )
+			"size": new java.awt.Dimension( 395, 425 )
+		} )
+		add( new FormNonVisual( "rhinova.metapopulation.model.graphicx.Composer" ) {
+			name: "composer1"
+			auxiliary() {
+				"JavaCodeGenerator.customCreate": true
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 440, 85 )
+		} )
+		add( new FormNonVisual( "rhinova.metapopulation.model.simulate.Simulator" ) {
+			name: "simulator1"
+			auxiliary() {
+				"JavaCodeGenerator.customCreate": true
+			}
+			addEvent( new FormEvent( "java.beans.PropertyChangeListener", "propertyChange", "simulator1PropertyChange", true ) )
+			addEvent( new FormEvent( "java.beans.PropertyChangeListener", "propertyChange", "simulator1PropertyChange", true ) )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 580, 95 )
+		} )
+		addBindingGroup( new FormBindingGroup( class org.jdesktop.beansbinding.BindingGroup ) {
+			"name": "bindingGroup"
+			addBinding( new FormBinding( "composer1", "waitStart", "spinnerWaitStart", "value" ) )
+			addBinding( new FormBinding( "composer1", "waitLeaving", "spinnerWaitMigrating", "value" ) )
+			addBinding( new FormBinding( "composer1", "numberOfYears", "spinnerYears", "value" ) )
+			addBinding( new FormBinding( "composer1", "noMigratingPictures", "spinnerNoMigratingPics", "value" ) )
+			addBinding( new FormBinding( "composer1", "waitMigrating", "spinnerWaitMigratingSteps", "value" ) )
+			addBinding( new FormBinding( "composer1", "waitArriving", "spinnerWaitArriving", "value" ) )
+			addBinding( new FormBinding( "composer1", "waitRegeneration", "spinnerWaitRegenerating", "value" ) )
+		} )
+	}
+}

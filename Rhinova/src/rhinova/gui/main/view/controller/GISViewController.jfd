@@ -1,0 +1,262 @@
+JFDML JFormDesigner: "5.1.1.0.120" Java: "1.7.0_45" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+			name: "this"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) {
+				"autoSize": false
+			} ) {
+				name: "panel2"
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btnSkipBack"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/resoursource/icon/skip_backward.png" )
+					"background": &Color0 new java.awt.Color( 255, 255, 255, 255 )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnSkipBackActionPerformed", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"width": 58
+					"x": 5
+					"y": 5
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btnBack"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/resoursource/icon/back.png" )
+					"background": #Color0
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnBackActionPerformed", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"width": 58
+					"x": 65
+					"y": 5
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btnPlay"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/resoursource/icon/play.png" )
+					"background": #Color0
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnPlayActionPerformed", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"width": 58
+					"x": 125
+					"y": 5
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btnPause"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/resoursource/icon/pause.png" )
+					"background": #Color0
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnPauseActionPerformed", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"width": 58
+					"x": 185
+					"y": 5
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btnStop"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/resoursource/icon/stop.png" )
+					"background": #Color0
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnStopActionPerformed", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"width": 58
+					"x": 245
+					"y": 5
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btnForward"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/resoursource/icon/forward.png" )
+					"background": #Color0
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnForwardActionPerformed", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"width": 58
+					"x": 305
+					"y": 5
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btnSkipForward"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/resoursource/icon/skip_forward.png" )
+					"background": #Color0
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnSkipForwardActionPerformed", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"width": 58
+					"x": 365
+					"y": 5
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 470
+				"height": 75
+				"x": 5
+				"y": 0
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+				"$columnSpecs": "77, center:108, 87, center:130"
+				"$rowSpecs": "0, 0, 0, 0, 0"
+				"$hGap": 5
+				"$vGap": 5
+				"$alignLeft": true
+				"$alignTop": true
+			} ) {
+				name: "panel1"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label3"
+					"text": "Year:"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblTime"
+					"text": "0000000000"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 1
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label11"
+					"text": "Final Time:"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblFinalTime"
+					"text": "0000000000"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label4"
+					"text": "Stage:"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 1
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblStage"
+					"text": "0000000000"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 1
+					"gridx": 1
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label13"
+					"text": "Initial Population:"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 2
+					"gridy": 1
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblInitialPopulation"
+					"text": "0000000000"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 1
+					"gridx": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label5"
+					"text": "Population:"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblPopulation"
+					"text": "0000000000"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 2
+					"gridx": 1
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label12"
+					"text": "Final Population:"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 2
+					"gridy": 2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblFinalPopulation"
+					"text": "0000000000"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 2
+					"gridx": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label1"
+					"text": "Slide"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblSlide"
+					"text": "0.0"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 1
+					"gridy": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label18"
+					"text": "Capacity:"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 3
+					"gridx": 2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblCapacity"
+					"text": "0000000000"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 3
+					"gridy": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": "No Pictures"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 4
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lblFinalSlide"
+					"text": "0.0"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 1
+					"gridy": 4
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 420
+				"height": 105
+				"x": 10
+				"y": 75
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 5, 20 )
+			"size": new java.awt.Dimension( 440, 185 )
+		} )
+		add( new FormNonVisual( "rhinova.metapopulation.model.graphicx.movie.Movie" ) {
+			name: "abstractMovie1"
+			auxiliary() {
+				"JavaCodeGenerator.customCreate": true
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 485, 60 )
+		} )
+		addBindingGroup( new FormBindingGroup( class org.jdesktop.beansbinding.BindingGroup ) {
+			"name": "bindingGroup"
+			addBinding( new FormBinding( "abstractMovie1", "year", "lblTime", "text" ) {
+				"updateStrategy": enum org.jdesktop.beansbinding.AutoBinding$UpdateStrategy READ
+			} )
+			addBinding( new FormBinding( "abstractMovie1", "stage", "lblStage", "text" ) {
+				"updateStrategy": enum org.jdesktop.beansbinding.AutoBinding$UpdateStrategy READ
+			} )
+			addBinding( new FormBinding( "abstractMovie1", "population", "lblPopulation", "text" ) {
+				"updateStrategy": enum org.jdesktop.beansbinding.AutoBinding$UpdateStrategy READ
+			} )
+			addBinding( new FormBinding( "abstractMovie1", "finalPopulation", "lblFinalTime", "text" ) {
+				"updateStrategy": enum org.jdesktop.beansbinding.AutoBinding$UpdateStrategy READ
+			} )
+			addBinding( new FormBinding( "abstractMovie1", "initialPopulation", "lblInitialPopulation", "text" ) {
+				"updateStrategy": enum org.jdesktop.beansbinding.AutoBinding$UpdateStrategy READ
+			} )
+			addBinding( new FormBinding( "abstractMovie1", "finalPopulation", "lblFinalPopulation", "text" ) {
+				"updateStrategy": enum org.jdesktop.beansbinding.AutoBinding$UpdateStrategy READ
+			} )
+			addBinding( new FormBinding( "abstractMovie1", "capacity", "lblCapacity", "text" ) {
+				"updateStrategy": enum org.jdesktop.beansbinding.AutoBinding$UpdateStrategy READ
+			} )
+			addBinding( new FormBinding( "abstractMovie1", "noPictures", "lblFinalSlide", "text" ) {
+				"updateStrategy": enum org.jdesktop.beansbinding.AutoBinding$UpdateStrategy READ
+			} )
+			addBinding( new FormBinding( "abstractMovie1", "currentPictureIndex", "lblSlide", "text" ) {
+				"updateStrategy": enum org.jdesktop.beansbinding.AutoBinding$UpdateStrategy READ
+			} )
+		} )
+	}
+}

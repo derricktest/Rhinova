@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Rhinova/src"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="src" path="res"/>
+	<classpathentry kind="src" path="mylib"/>
+	<classpathentry kind="src" path="examples"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ApacheCommonLogging"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/SpringFramework"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/AspectJ"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MingLayout"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Lombok"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/OpenCSV"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/GLPK"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Math"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JGoodies"/>
+	<classpathentry kind="lib" path="lib/swing-layout.jar" sourcepath="lib/swing-layout-src.zip">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/Rhinova/lib/swing-layout-javadoc.zip!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JDesktop"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JFreeChart"/>
+	<classpathentry kind="lib" path="lib/jgoodies-uif-lite.jar" sourcepath="lib/jgoodies-uif-lite-src.zip">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/Rhinova/lib/jgoodies-uif-lite-javadoc.zip!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
