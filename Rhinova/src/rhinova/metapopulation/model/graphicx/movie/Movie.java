@@ -349,4 +349,13 @@ public class Movie {
 	public int getNoPictures() {
 		return noPictures;
 	}
+
+
+	public boolean isLastFrame() {
+		if (this.getCurrentPictureIndex() ==  this.pictures.size() - 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

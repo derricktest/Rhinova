@@ -136,6 +136,10 @@ public class SimulatorMoviePanel extends JPanel implements ApplicationListener<C
 	
 	public void run() {
 		while(true) {
+			if (movie.isLastFrame()) {
+				this.stop();
+			}
+			
 			this.stepForward();
 			try {
 				Thread.sleep(300);
