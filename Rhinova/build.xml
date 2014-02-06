@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="run" name="Create Runnable Jar for Project Rhinova with libraries in sub-folder">
 	
+	
+	<!-- 
+	ANT SCRIPT FOR RHINOVA PROJECT
+	
+	This script can be used to compile source code, run tests, create java doc, distrubute
+	the project into a runnable jar and run the jar.
+	 -->
+	
+	
+	
+	
 	<!-- PROPERTIES USED IN THE BUILD -->
 	
 	<!-- FOLDER PROPERTIES -->
@@ -30,7 +41,7 @@
 
 	
 	<!-- CLEANING BINDARY FOLDERS -->
-	<target name="clean">
+	<target name="clean" description="Cleans the folders which contain files generated from the build.">
 		<mkdir dir="bin"/>
 		<delete dir="bin"/>
 		<mkdir dir="${test.report.dir}"/>
@@ -38,7 +49,7 @@
 		
 	
 	<!-- COPYING NEEDED FILES TO THE BINARY DIRECTORY FOR JARING -->
-    <target name="copy">
+    <target name="copy" description="Copy files which are not java source files but needed in the bin directory to be included in the jar.">
 		<!-- SPRING CONFIGURATION FILE -->
 		<copy file="src/${spring.xml.file}" todir="${classes.dir}"/>
     	<copy todir="${classes.dir}">
@@ -50,7 +61,7 @@
 
 		
 	<!-- COMPILING THE JAVA SOURCE CODE -->
-    <target name="compile" depends="clean,copy">
+    <target name="compile" depends="clean,copy" description="Compile the java source code into .class files located in the bin directory.">
         <mkdir dir="${classes.dir}"/>
         <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath">
     	</javac>
@@ -58,7 +69,7 @@
 	
 	
 	<!-- RUNNING UNIT TESTS -->
-	  <target name="junit" depends="compile">
+	  <target name="junit" depends="compile" description="Run the unit tests of the project.">
 	    <junit printsummary="on" fork="true" haltonfailure="yes">
 	      <classpath refid="junit.class.path" />
 	      <formatter type="xml" />
@@ -70,8 +81,9 @@
 	    </junit>
 	  </target>
 	
+	
 	  <!-- CREATING JAVADOC -->
-	  <target name="docs" depends="compile">
+	  <target name="docs" depends="compile" description="Create the javadoc for the project.">
 	    <javadoc packagenames="src" sourcepath="${code.src}" destdir="${docs.dir}">
 	       <fileset dir="${code.src}">
 	                <include name="**/*.java" />
@@ -79,8 +91,9 @@
 	    </javadoc>
 	  </target>
 	
+	
 	<!-- PACKAGING THE JAVA SOURCE CODE INTO A JAR -->
-    <target name="jar" depends="compile">
+    <target name="jar" depends="compile" description="Package the application into a runnable jar.">
     	<delete file="${jar.path}"/>
         <jar destfile="${jar.path}">
             <manifest>
@@ -91,13 +104,15 @@
         </jar>
     </target>
 	
+	
 	<!-- RUNNING THE APPLCIATION -->
-    <target name="run" depends="compile">
+    <target name="run" depends="compile" description="Run the jar file.">
         <java jar="${jar.path}" fork="true"/>
     </target>
 	
 	
-	<target name="all" depends="run,docs,junit"/>
+	<!-- RUNNING THE APPLCIATION -->
+	<target name="all" depends="junit,docs,run" description="Task to force the completion of all tasks in the project."/>
 	
 	
 	
