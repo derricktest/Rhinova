@@ -33,8 +33,6 @@ public class RhinovaLauncher {
 		
 		WelcomeScreen welcomeScreen = ctx.getBean(WelcomeScreen.class);
 		welcomeScreen.setVisible(true);
-		
-		System.out.println("Welcome");
 
 	}
 
