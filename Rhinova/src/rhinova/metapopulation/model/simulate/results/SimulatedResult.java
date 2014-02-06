@@ -2,7 +2,6 @@ package rhinova.metapopulation.model.simulate.results;
 
 import java.util.List;
 
-import lombok.Data;
 import rhinova.metapopulation.model.components.reserve.ReserveList;
 import rhinova.metapopulation.model.optimise.results.OptimisedResultLink;
 import rhinova.metapopulation.model.simulate.results.data.LinkDataList;
@@ -13,9 +12,88 @@ import rhinova.metapopulation.model.simulate.results.stages.StageRegeneration;
 import rhinova.metapopulation.model.simulate.results.stages.StageStart;
 
 
-@Data
 public class SimulatedResult {
 	
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public int getYear() {
+		return year;
+	}
+
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+
+	public StageStart getStageStart() {
+		return stageStart;
+	}
+
+
+	public void setStageStart(StageStart stageStart) {
+		this.stageStart = stageStart;
+	}
+
+
+	public StageLeaving getStageLeaving() {
+		return stageLeaving;
+	}
+
+
+	public void setStageLeaving(StageLeaving stageLeaving) {
+		this.stageLeaving = stageLeaving;
+	}
+
+
+	public StageArriving getStageArriving() {
+		return stageArriving;
+	}
+
+
+	public void setStageArriving(StageArriving stageArriving) {
+		this.stageArriving = stageArriving;
+	}
+
+
+	public StageRegeneration getStageRegeneration() {
+		return stageRegeneration;
+	}
+
+
+	public void setStageRegeneration(StageRegeneration stageRegeneration) {
+		this.stageRegeneration = stageRegeneration;
+	}
+
+
+	public StageLink getStageLink() {
+		return stageLink;
+	}
+
+
+	public void setStageLink(StageLink stageLink) {
+		this.stageLink = stageLink;
+	}
+
+
+	public LinkDataList getLinkData() {
+		return linkData;
+	}
+
+
+	public void setLinkData(LinkDataList linkData) {
+		this.linkData = linkData;
+	}
+
+
 	private String name;
 	private int year;
 	

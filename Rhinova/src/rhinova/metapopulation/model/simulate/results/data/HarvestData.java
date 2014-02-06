@@ -4,12 +4,17 @@ import java.io.Serializable;
 
 import rhinova.framework.drawable.Lineable;
 import rhinova.metapopulation.model.optimise.results.OptimisedResultLink;
-import lombok.Data;
 
-@Data
 public class HarvestData implements Serializable, Lineable  {
 	
 
+	public OptimisedResultLink getOptimisedResultLink() {
+		return optimisedResultLink;
+	}
+
+	public void setOptimisedResultLink(OptimisedResultLink optimisedResultLink) {
+		this.optimisedResultLink = optimisedResultLink;
+	}
 	private static final long serialVersionUID = 1L;
 	
 	OptimisedResultLink optimisedResultLink;

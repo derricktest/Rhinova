@@ -2,11 +2,10 @@ package rhinova.metapopulation.model.simulate.results.data;
 
 import java.io.Serializable;
 
-import lombok.Data;
 import rhinova.framework.drawable.Lineable;
 import rhinova.metapopulation.model.components.link.Link;
 
-@Data
+
 public class LinkData implements Serializable, Lineable {
 	
 
@@ -41,6 +40,42 @@ public class LinkData implements Serializable, Lineable {
 	public double getX2() 			{		return this.x2Pos;	}
 	@Override
 	public double getY2() 			{		return this.y2Pos;	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public double getX1Pos() {
+		return x1Pos;
+	}
+
+	public double getY1Pos() {
+		return y1Pos;
+	}
+
+	public double getX2Pos() {
+		return x2Pos;
+	}
+
+	public double getY2Pos() {
+		return y2Pos;
+	}
+
+	public double getCapacity() {
+		return capacity;
+	}
+
+	public double getSurvivalRate() {
+		return survivalRate;
+	}
 	@Override
 	public double getColor() 		{		return this.getSurvivalRate();			}
 	@Override

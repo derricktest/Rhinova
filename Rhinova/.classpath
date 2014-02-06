@@ -31,7 +31,6 @@
 	<classpathentry kind="lib" path="lib/jgoodies-uif-lite-src.zip"/>
 	<classpathentry kind="lib" path="lib/jgoodies-uif-lite.jar"/>
 	<classpathentry kind="lib" path="lib/junit.jar"/>
-	<classpathentry kind="lib" path="lib/lombok.jar"/>
 	<classpathentry kind="lib" path="lib/LPSOLVESolverPack.jar"/>
 	<classpathentry kind="lib" path="lib/miglayout-3.5.5-ideutil-java14.jar"/>
 	<classpathentry kind="lib" path="lib/miglayout-3.5.5-ideutil.jar"/>

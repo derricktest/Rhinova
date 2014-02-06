@@ -4,12 +4,55 @@ import java.io.Serializable;
 
 import rhinova.metapopulation.model.components.link.Link;
 import rhinova.metapopulation.model.simulate.results.data.LinkData;
-import lombok.Data;
 
-@Data
+
 public class OptimisedResultLink implements Comparable<OptimisedResultLink>, Serializable {
 
 	
+	public LinkData getLinkData() {
+		return linkData;
+	}
+
+	public void setLinkData(LinkData linkData) {
+		this.linkData = linkData;
+	}
+
+	public double getValue() {
+		return value;
+	}
+
+	public void setValue(double value) {
+		this.value = value;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+	public int getResFrom() {
+		return resFrom;
+	}
+
+	public void setResFrom(int resFrom) {
+		this.resFrom = resFrom;
+	}
+
+	public int getResTo() {
+		return resTo;
+	}
+
+	public void setResTo(int resTo) {
+		this.resTo = resTo;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	private static final long serialVersionUID = 1L;
 	
 	LinkData linkData;

@@ -1,15 +1,112 @@
 package rhinova.framework.drawable;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /**
  * Circle Class to be drawn easy
  *
  */
-@Data
-@EqualsAndHashCode(callSuper=false)
 public class Circle extends Shape {
+
+	public double getX() {
+		return x;
+	}
+
+
+
+	public void setX(double x) {
+		this.x = x;
+	}
+
+
+
+	public double getY() {
+		return y;
+	}
+
+
+
+	public void setY(double y) {
+		this.y = y;
+	}
+
+
+
+	public double getGrowth() {
+		return growth;
+	}
+
+
+
+	public void setGrowth(double growth) {
+		this.growth = growth;
+	}
+
+
+
+	public double getCurR() {
+		return curR;
+	}
+
+
+
+	public void setCurR(double curR) {
+		this.curR = curR;
+	}
+
+
+
+	public double getMaxR() {
+		return maxR;
+	}
+
+
+
+	public void setMaxR(double maxR) {
+		this.maxR = maxR;
+	}
+
+
+
+	public double getMinR() {
+		return minR;
+	}
+
+
+
+	public void setMinR(double minR) {
+		this.minR = minR;
+	}
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+	public double getInitCur() {
+		return initCur;
+	}
+
+
+
+	public double getInitMax() {
+		return initMax;
+	}
+
+
+
+	public double getInitMin() {
+		return initMin;
+	}
+
+
 
 	private double x;
 	private double y;

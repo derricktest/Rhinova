@@ -1,12 +1,58 @@
 package rhinova.metapopulation.model.simulate.results.data;
 
-import lombok.Data;
 import rhinova.framework.drawable.Circleable;
 import rhinova.metapopulation.model.components.reserve.Reserve;
 
-@Data
+
+/**
+ * @author Derrick
+ *
+ */
 public class ReserveData implements Circleable {
 	
+	public int getId() {
+		return id;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public double getXPos() {
+		return xPos;
+	}
+
+
+	public double getYPos() {
+		return yPos;
+	}
+
+
+	public double getMaxPopulation() {
+		return maxPopulation;
+	}
+
+
+	public double getMinPopulation() {
+		return minPopulation;
+	}
+
+
+	public double getCurrentPopulation() {
+		return currentPopulation;
+	}
+
+
+	public double getRegenerationRate() {
+		return regenerationRate;
+	}
+
+
+	public double getIntit() {
+		return intit;
+	}
 	final int id;
 	final String name;
 	final double xPos;

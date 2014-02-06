@@ -1,17 +1,22 @@
 package rhinova.metapopulation.model.simulate.results.stages;
 
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 import rhinova.metapopulation.model.components.reserve.ReserveList;
 import rhinova.metapopulation.model.simulate.results.data.ReserveData;
 import rhinova.metapopulation.model.simulate.results.data.ReserveDataList;
 
-@Data
-@EqualsAndHashCode(callSuper=false)
+
 public class StagePopulation {
 	
 	ReserveDataList reserveDataList;
+
+	public ReserveDataList getReserveDataList() {
+		return reserveDataList;
+	}
+
+	public void setReserveDataList(ReserveDataList reserveDataList) {
+		this.reserveDataList = reserveDataList;
+	}
 
 	public StagePopulation(ReserveDataList reserveDataList) {
 		this.reserveDataList = reserveDataList;
