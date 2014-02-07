@@ -24,11 +24,20 @@
 	<property name="docs.dir" 			value="doc" />
 	<property name="code.src" 			value="src"/>
 	<property name="src.dir" 			value="${code.src}; test;" />
+	<property name="manifest-version"   value="1.01" />
+	<property name="main.class" 		value="rhinova.RhinovaLauncher" />
 		
 	<!-- CLASS PATH OF APPLICATION -->
+	
+	<!-- COMPILE CLASS PATH -->
     <path id="classpath">
         <fileset dir="${lib.path}" includes="*.*"/>
     </path>	
+	
+	<!-- JAR CLASS PATH -->
+	<manifestclasspath property="manifest.classpath" jarfile="${jar.path}">
+	    <classpath refid="classpath"/>
+	</manifestclasspath>
 	
 	<!-- JUNIT PROPERTIES -->
 	<property name="test.dir" location="test" />
@@ -97,8 +106,10 @@
     	<delete file="${jar.path}"/>
         <jar destfile="${jar.path}">
             <manifest>
-                <attribute name="Main-Class" value="rhinova.RhinovaLauncher"/>
-            	<attribute name="Class-Path" value=". rhinova_lib/aopalliance-1.0.jar rhinova_lib/appframework-1.0.3.jar rhinova_lib/asm-3.3.1.jar rhinova_lib/aspectjweaver-1.7.3.jar rhinova_lib/beansbinding-1.2.1.jar rhinova_lib/cglib-2.2.3.jar rhinova_lib/cglib-nodep-2.2.3.jar rhinova_lib/commons-logging-1.1.3.jar rhinova_lib/commons-math3-3.2.jar rhinova_lib/GLPKSolverPack.jar rhinova_lib/hamcrest-core-1.3.jar rhinova_lib/itext-2.0.1.jar rhinova_lib/jcommon-1.0.21.jar rhinova_lib/jfreechart-1.0.17-experimental.jar rhinova_lib/jfreechart-1.0.17-swt.jar rhinova_lib/jfreechart-1.0.17.jar rhinova_lib/jfreesvg-1.4.jar rhinova_lib/jgoodies-forms-1.7.1.jar rhinova_lib/jgoodies-uif-lite-javadoc.zip rhinova_lib/jgoodies-uif-lite-src.zip rhinova_lib/jgoodies-uif-lite.jar rhinova_lib/junit.jar rhinova_lib/LPSOLVESolverPack.jar rhinova_lib/miglayout-3.5.5-ideutil-java14.jar rhinova_lib/miglayout-3.5.5-ideutil.jar rhinova_lib/miglayout-3.5.5-swing-java14.jar rhinova_lib/miglayout-3.5.5-swing.jar rhinova_lib/miglayout-3.5.5-swt-java14.jar rhinova_lib/miglayout-3.5.5-swt.jar rhinova_lib/miglayout-3.5.5.jar rhinova_lib/opencsv-2.3.jar rhinova_lib/org.hamcrest.core_1.3.0.v201303031735.jar rhinova_lib/orsoncharts-1.0-eval.jar rhinova_lib/orsonpdf-1.3-eval.jar rhinova_lib/ScpMain.jar rhinova_lib/SCPSolver.jar rhinova_lib/servlet.jar rhinova_lib/spring-aop-4.0.0.M2.jar rhinova_lib/spring-aspects-4.0.0.M2.jar rhinova_lib/spring-beans-4.0.0.M2.jar rhinova_lib/spring-context-4.0.0.M2-javadoc.jar rhinova_lib/spring-context-4.0.0.M2.jar rhinova_lib/spring-context-support-4.0.0.M2.jar rhinova_lib/spring-core-4.0.0.M2-sources.jar rhinova_lib/spring-core-4.0.0.M2.jar rhinova_lib/spring-expression-4.0.0.M2.jar rhinova_lib/spring-instrument-4.0.0.M2.jar rhinova_lib/spring-instrument-tomcat-4.0.0.M2.jar rhinova_lib/spring-jdbc-4.0.0.M2.jar rhinova_lib/spring-jms-4.0.0.M2.jar rhinova_lib/spring-messaging-4.0.0.M2.jar rhinova_lib/spring-orm-4.0.0.M2.jar rhinova_lib/spring-oxm-4.0.0.M2.jar rhinova_lib/spring-test-4.0.0.M2.jar rhinova_lib/spring-tx-4.0.0.M2-javadoc.jar rhinova_lib/spring-tx-4.0.0.M2.jar rhinova_lib/spring-web-4.0.0.M2.jar rhinova_lib/spring-webmvc-4.0.0.M2.jar rhinova_lib/spring-webmvc-portlet-4.0.0.M2.jar rhinova_lib/spring-websocket-4.0.0.M2.jar rhinova_lib/swing-layout-javadoc.zip rhinova_lib/swing-layout-src.zip rhinova_lib/swing-layout.jar rhinova_lib/swing-worker-1.1.jar rhinova_lib/swtgraphics2d.jar"/>
+            	<attribute name="Class-Path"		value="${manifest.classpath}"/>
+                <attribute name="Main-Class" 		value="${main.class}"/>
+            	<attribute name="Manifest-Version" 	value="${manifest-version}"/>
+            	<attribute name="Created-By" 		value="${ant.java.version}"/>
             </manifest>
         	<fileset dir="${classes.dir}"/>
         </jar>
@@ -106,7 +117,7 @@
 	
 	
 	<!-- RUNNING THE APPLCIATION -->
-    <target name="run" depends="compile" description="Run the jar file.">
+    <target name="run" depends="jar" description="Run the jar file.">
         <java jar="${jar.path}" fork="true"/>
     </target>
 	
