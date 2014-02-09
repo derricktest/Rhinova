@@ -24,13 +24,13 @@ public class HarvestData implements Serializable, Lineable  {
 	}
 
 	@Override
-	public double getX1() 			{		return this.getOptimisedResultLink().getLinkData().getX1();	}
+	public double getX1() 			{		return this.getOptimisedResultLink().getResFrom().getX(); }
 	@Override
-	public double getY1() 			{		return this.getOptimisedResultLink().getLinkData().getY1();	}
+	public double getY1() 			{		return this.getOptimisedResultLink().getResFrom().getY();	}
 	@Override
-	public double getX2() 			{		return this.getOptimisedResultLink().getLinkData().getX2();	}
+	public double getX2() 			{		return this.getOptimisedResultLink().getResTo().getX();	}
 	@Override
-	public double getY2() 			{		return this.getOptimisedResultLink().getLinkData().getY2();}
+	public double getY2() 			{		return this.getOptimisedResultLink().getResTo().getY(); }
 	@Override
 	public double getColor() 		{		return this.getOptimisedResultLink().getLinkData().getSurvivalRate();		}
 	@Override

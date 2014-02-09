@@ -340,7 +340,7 @@ public class LinkList extends RootModelEntityList<Link> implements ObjectGetter,
 		// TODO use link constraints
 		for (int i=0; i<oneYearHarvest.size(); i++) {
 			OptimisedResultLink result = oneYearHarvest.get(i);
-			Reserve reserve = this.reservesList.getById(result.getResFrom());
+			Reserve reserve = result.getResFrom();
 			reserve.givePopulation(result.getValue());
 		}
 		simulatedResult.newLeaving(reservesList, oneYearHarvest);									// record leaving
@@ -349,7 +349,7 @@ public class LinkList extends RootModelEntityList<Link> implements ObjectGetter,
 		// TODO use link constraints
 		for (int i=0; i<oneYearHarvest.size(); i++) {
 			OptimisedResultLink result = oneYearHarvest.get(i);
-			Reserve reserve = this.reservesList.getById(result.getResTo());
+			Reserve reserve = result.getResTo();
 			reserve.acceptPopulation(result.getValue()*result.getLinkData().getSurvivalRate());
 		}
 		simulatedResult.newArriving(reservesList, oneYearHarvest);									// record arriving

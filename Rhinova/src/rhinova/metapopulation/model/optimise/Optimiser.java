@@ -77,12 +77,12 @@ public class Optimiser extends ModelBindingClass implements ApplicationListener<
 				// first name (reserve1 to reserve2)
 				name = symbolicVariableName(y,link.getReserve1No(),link.getReserve2No(),link.getId());
 				SymbolicVariable.addVariableName(name);
-				variablesMap.put(name, new OptimisedResultLink(link, 0.0, y, link.getReserve1No(), link.getReserve2No()));
+				variablesMap.put(name, new OptimisedResultLink(link, 0.0, y, link.getReserve1(), link.getReserve2()));
 
 				// second name (reserve2 to reserve1)
 				name = symbolicVariableName(y,link.getReserve2No(),link.getReserve1No(),link.getId());
 				SymbolicVariable.addVariableName(name);
-				variablesMap.put(name,new OptimisedResultLink(link, 0.0, y, link.getReserve2No(), link.getReserve1No()));
+				variablesMap.put(name,new OptimisedResultLink(link, 0.0, y, link.getReserve2(), link.getReserve1()));
 			}
 		}
 		

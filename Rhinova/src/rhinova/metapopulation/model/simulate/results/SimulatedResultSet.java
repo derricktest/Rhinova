@@ -126,8 +126,8 @@ public class SimulatedResultSet extends ArrayList<SimulatedResult> implements Gr
 			DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 			HarvestDataList harvestData = result.getStageLeaving().getHarvestDataList();
 			for (HarvestData harv : harvestData) {
-				int resFrom = harv.getOptimisedResultLink().getResFrom();
-				int resTo = harv.getOptimisedResultLink().getResTo();
+				int resFrom = harv.getOptimisedResultLink().getResFrom().getId();
+				int resTo = harv.getOptimisedResultLink().getResTo().getId();
 				double value = harv.getOptimisedResultLink().getValue();
 				
 				dataset.addValue(value, (Comparable<?>)value, resFrom + " -> " + resTo);

@@ -186,8 +186,8 @@ public class DrawingFunctions {
 	 */
 	public static void drawBezerSection(
 			Dimension d,
-			double xZ, double yZ,
 			double xA, double yA,
+			double xZ, double yZ,
 			double  t, Graphics g,
 			double thickness) {
 

@@ -19,11 +19,13 @@ public class HarvestDataList extends ArrayList<HarvestData> implements Serializa
 			this.add(new HarvestData(result));
 		}
 	}
-	
+
 	public LineList getLines() {
 		LineList lines = new LineList();
 		for (int i=0; i<this.size(); i++) {
-			lines.add(new Line(this.get(i)));
+			if (! (this.get(i).getThickness() <= 0.0)) {
+				lines.add(new Line(this.get(i)));
+			}
 		}
 		return lines;
 	}
