@@ -45,7 +45,7 @@ public class TotaPopulationTimeSeriesPanel extends SimulatedResultsChartPanel im
 
 		// JFree chart
 		JFreeChart chart = ChartFactory.createXYLineChart(
-				"Time Series of Population", // chart title
+				"Time Series of Total Population", // chart title
 				"Slide", // x axis label
 				"Population", // y axis label
 				dataset, // data
