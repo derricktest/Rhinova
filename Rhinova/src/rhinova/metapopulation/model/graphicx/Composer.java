@@ -161,10 +161,9 @@ public class Composer extends BindableObject implements
 			// migrating picture
 			for (int j = 1; j <= noMigratingPictures; j++) {
 				JustCirclePicture migratingPicture = pictureFactory
-						.createArrowCirclePicture(result.getStageLeaving()
-								.getHarvestDataList().getLines(), result
-								.getStageLeaving().getReserveDataList()
-								.getCircles(), waitLeaving, (double) j
+						.createArrowCirclePicture(
+								result.getStageLeaving().getHarvestDataList().getLines(),
+								result.getStageLeaving().getReserveDataList().getCircles(), waitLeaving, (double) j
 								/ noMigratingPictures, i, "Leaving",
 								result.getStageLeaving().getReserveDataList()
 										.getPopulation(),
