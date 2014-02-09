@@ -10,7 +10,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.xml.sax.SAXException;
 
 import rhinova.gui.HomeView;
-import rhinova.gui.WelcomeScreen;
 import rhinova.metapopulation.model.components.dao.MetapopulationDao;
 
 public class RhinovaLauncher {
@@ -30,9 +29,6 @@ public class RhinovaLauncher {
 		HomeView comp = ctx.getBean(HomeView.class);
 		comp.setVisible(true);
 		
-		
-		WelcomeScreen welcomeScreen = ctx.getBean(WelcomeScreen.class);
-		welcomeScreen.setVisible(true);
 
 	}
 

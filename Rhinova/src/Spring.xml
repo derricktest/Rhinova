@@ -46,6 +46,8 @@
 					<property name="gisPanel" ref="homeGISPanel"/>
 				</bean>
 				
+				<bean id="helpBar"		class="rhinova.gui.main.view.toolbar.bars.HelpBar"/>
+				
 			</list>
 		</constructor-arg>
 
@@ -274,13 +276,7 @@
 		<constructor-arg ref="reserveDataEditPanel"/>
 	</bean>
 	
-	
-	
-	
-	
-	
-	<!-- Welcome Screen -->
-	<bean id="welcomeScreen" class="rhinova.gui.WelcomeScreen" />
+
 
 
 
