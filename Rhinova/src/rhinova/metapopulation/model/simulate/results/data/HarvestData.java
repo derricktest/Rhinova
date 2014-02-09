@@ -34,6 +34,6 @@ public class HarvestData implements Serializable, Lineable  {
 	@Override
 	public double getColor() 		{		return this.getOptimisedResultLink().getLinkData().getSurvivalRate();		}
 	@Override
-	public double getThickness() 	{		return this.getOptimisedResultLink().getLinkData().getCapacity();			}
+	public double getThickness() 	{		return this.getOptimisedResultLink().getValue();			}
 	
 }
