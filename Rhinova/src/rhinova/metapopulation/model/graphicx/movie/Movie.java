@@ -216,7 +216,7 @@ public class Movie {
 			       newPopulationIndex);
 		
 		
-		publisher.publishEvent(new NextSlideMovieEvent(this,this.populationIndex));
+		publisher.publishEvent(new NextSlideMovieEvent(this,this.populationIndex, this.getYear()));
 		
 	}
 

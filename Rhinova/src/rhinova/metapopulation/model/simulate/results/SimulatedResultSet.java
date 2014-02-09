@@ -6,10 +6,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
 import rhinova.framework.graph.Graphable;
+import rhinova.metapopulation.model.simulate.results.data.HarvestData;
+import rhinova.metapopulation.model.simulate.results.data.HarvestDataList;
 import rhinova.metapopulation.model.simulate.results.data.ReserveData;
 import rhinova.metapopulation.model.simulate.results.data.ReserveDataList;
 
@@ -56,12 +59,12 @@ public class SimulatedResultSet extends ArrayList<SimulatedResult> implements Gr
 		}
 		return xySeries;
 	}
-	
+
 	public XYSeriesCollection getTotalPopulationTimeSeries() {
 
 		XYSeriesCollection xySeriesCollection = new XYSeriesCollection();
 		XYSeries xySeries = new XYSeries("Total Population");
-		
+
 		int j=0;
 		for (int i=0; i<this.size(); i++) {
 			SimulatedResult result = this.get(i);
@@ -77,7 +80,7 @@ public class SimulatedResultSet extends ArrayList<SimulatedResult> implements Gr
 		xySeriesCollection.addSeries(xySeries);
 		return xySeriesCollection;
 	}
-	
+
 
 
 	/**
@@ -108,28 +111,53 @@ public class SimulatedResultSet extends ArrayList<SimulatedResult> implements Gr
 
 
 
+	/**
+	 * Method to a CategoryDataset for the harvest.
+	 * @return
+	 */
+	public List<DefaultCategoryDataset> getHarvestsDataSet() {
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+		List<DefaultCategoryDataset> globalData = new ArrayList<DefaultCategoryDataset>(); 
+
+
+		for (SimulatedResult result : this) {
+
+			DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+			HarvestDataList harvestData = result.getStageLeaving().getHarvestDataList();
+			for (HarvestData harv : harvestData) {
+				int resFrom = harv.getOptimisedResultLink().getResFrom();
+				int resTo = harv.getOptimisedResultLink().getResTo();
+				double value = harv.getOptimisedResultLink().getValue();
+				
+				dataset.addValue(value, (Comparable<?>)value, resFrom + " -> " + resTo);
+				
+			}
+			globalData.add(dataset);
+		}
+		return globalData;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	/**
 	 * Record the reservedata, assumes that this is called sequentially so that the place
 	 * does not need to be determined.

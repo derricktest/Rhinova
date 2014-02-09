@@ -196,6 +196,7 @@
 				</bean>
 				<bean id="populationTimeSeriesPanel"		class="rhinova.gui.main.view.simulator.graphs.PopulationTimeSeriesPanel" />
 				<bean id="totaPopulationTimeSeriesPanel"	class="rhinova.gui.main.view.simulator.graphs.TotaPopulationTimeSeriesPanel" />
+				<bean id="harvestGraph" class="rhinova.gui.main.view.simulator.graphs.HarvestGraph"/>
 			</list>
 		</constructor-arg>
 	</bean>
