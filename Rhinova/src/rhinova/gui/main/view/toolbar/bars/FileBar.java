@@ -49,7 +49,7 @@ public class FileBar extends MainToolBarMenu {
 
 			JFileChooser fc = null;
 			try {
-				fc = new JFileChooser(new File(dao.getLastOpen()));
+				fc = new JFileChooser(new File(dao.getLastFilePath()));
 			} catch (Exception e) {
 				fc = new JFileChooser();
 			}
@@ -69,7 +69,7 @@ public class FileBar extends MainToolBarMenu {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 
-			JFileChooser fc = new JFileChooser(new File(dao.getLastOpen()));
+			JFileChooser fc = new JFileChooser(new File(dao.getLastFilePath()));
 			int response = fc.showSaveDialog(null);
 			if (response == 0)
 			{
@@ -82,7 +82,7 @@ public class FileBar extends MainToolBarMenu {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			dao.save(dao.getLastOpen());
+			dao.save(dao.getLastFilePath());
 		}
 		
 	}

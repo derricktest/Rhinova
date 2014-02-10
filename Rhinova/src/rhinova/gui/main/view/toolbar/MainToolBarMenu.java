@@ -22,7 +22,7 @@ public abstract class MainToolBarMenu extends JMenu implements Comparable<MainTo
 	
 	public int getPlace() {
 		return 100;
-	};
+	}
 
 
 	@Override
