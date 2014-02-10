@@ -32,7 +32,7 @@ public class DaoAspect {
 	public void myAsdfds() {
 		
 		if (homeView != null) {
-			homeView.setTitle(dao.getLastOpen());
+			homeView.setTitle(dao.getLastFilePath());
 		}
 	}
 }

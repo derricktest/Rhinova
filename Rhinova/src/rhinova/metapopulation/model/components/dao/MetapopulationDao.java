@@ -1,13 +1,10 @@
 package rhinova.metapopulation.model.components.dao;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Properties;
 
-import javax.annotation.PostConstruct;
 import javax.xml.bind.JAXBException;
 
 import au.com.bytecode.opencsv.CSVReader;
@@ -220,38 +217,16 @@ public class MetapopulationDao {
 
 	String propertiesPath = null;
 
-	/** Try and load in the last file open */
-	@PostConstruct
-	public void post() {
-		try {
-			propertiesPath = this.getClass().getResource("MetapopulationDaoProperties.properties").getPath();
-			FileReader fr = new FileReader(new File(propertiesPath));
-			properties.load(fr);
-			String lastOpen = properties.getProperty("lastOpen");
-			if (lastOpen.length()==0) {
-				System.out.println("no last file present");
-			} else {
-				this.open(lastOpen);
-				return;
-			}
-		} catch (IOException e) {
-			System.out.println("Couldn't open last open file");
-			return;
-		}
-	}
 
 	public void trackFile(String fileName) {
-		this.properties.setProperty("lastOpen", fileName);
-		try {
-			this.properties.store(new FileOutputStream(propertiesPath), null);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		lastOpendFilePath = fileName;
 	}
 
+	String lastOpendFilePath = "";
+	
 	/** get the last open path */
-	public String getLastOpen() {
-		return properties.getProperty("lastOpen");
+	public String getLastFilePath() {
+		return lastOpendFilePath;
 	}
 
 	@DaoAction

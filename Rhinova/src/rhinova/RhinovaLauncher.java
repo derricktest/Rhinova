@@ -10,7 +10,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.xml.sax.SAXException;
 
 import rhinova.gui.HomeView;
-import rhinova.metapopulation.model.components.dao.MetapopulationDao;
 
 public class RhinovaLauncher {
 
@@ -20,12 +19,6 @@ public class RhinovaLauncher {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("Spring.xml");
 
 
-		try {
-			MetapopulationDao dao = ctx.getBean(MetapopulationDao.class);
-			try {
-				dao.open(dao.getLastOpen());
-			} catch(Exception e) {}
-		}catch(Exception e) {}
 		HomeView comp = ctx.getBean(HomeView.class);
 		comp.setVisible(true);
 		
