@@ -22,6 +22,8 @@ public class RhinovaLauncher {
 		HomeView comp = ctx.getBean(HomeView.class);
 		comp.setVisible(true);
 		
+		
+		System.out.println("Hello from derrickTest");
 
 	}
 
